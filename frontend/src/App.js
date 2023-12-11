@@ -1,5 +1,7 @@
+import MainLayout from "./Components/MainLayout";
+
 function App() {
-  return <h1>That is the startpoint</h1>;
+  return <MainLayout />;
 }
 
 export default App;
