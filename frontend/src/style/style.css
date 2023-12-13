@@ -1,0 +1,22 @@
+body {
+  background: linear-gradient(to bottom, #0c0f17, #20232a, #0c0f17);
+  color: #fff;
+}
+
+#password {
+  font-size: 24px;
+  font-family: "Arial", sans-serif;
+  color: #333; /* Textfarbe anpassen */
+  background-color: #f7f7f7; /* Hintergrundfarbe anpassen */
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Schatten hinzufügen */
+}
+
+.test {
+  border: solid 3px green;
+}
+
+.test2 {
+  border: solid 3px blue;
+}

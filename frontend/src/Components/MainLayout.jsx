@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../style/style.css";
 
 const MainLayout = () => {
   const [pwd, setPwd] = useState("safePassword");
@@ -148,45 +150,97 @@ const MainLayout = () => {
   };
 
   return (
-    <div>
-      <h1>Generate Password</h1>
-      <p id="password">{pwd}</p>
-      <button onClick={handleGenerateBtn}>Generate</button>
-      <input
-        type="checkbox"
-        name="low"
-        checked={isCheckedLow}
-        onChange={handleCheckboxes}
-      />
-      <label>Klein</label>
-      <input
-        type="checkbox"
-        name="up"
-        checked={isCheckedUp}
-        onChange={handleCheckboxes}
-      />
-      <label>Groß</label>
-      <input
-        type="number"
-        value={pwdLength}
-        min={8}
-        max={20}
-        onChange={handleNumberInput}
-      />
-      <input
-        type="checkbox"
-        name="num"
-        checked={isCheckedNum}
-        onChange={handleCheckboxes}
-      />
-      <label>Zahlen</label>
-      <input
-        type="checkbox"
-        name="special"
-        isChecked={isCheckedSpecial}
-        onChange={handleCheckboxes}
-      />
-      <label>Sonderzeichen</label>
+    <div
+      className="d-flex justify-content-center align-items-center flex-column"
+      style={{ height: "100vh" }}
+    >
+      <div>
+        <div className="d-flex justify-content-center flex-column">
+          <h1 className="text-center">Password Generator</h1>
+          <p className="text-center mt-3 col-6 mx-auto" id="password">
+            {pwd}
+          </p>
+          <button
+            className="btn btn-outline-light col-3 mx-auto"
+            onClick={handleGenerateBtn}
+          >
+            Generate
+          </button>
+        </div>
+        <div className="ms-2 me-2 row mt-5 w-auto">
+          <div className="form-check form-switch col-6 col-sm-3">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              name="low"
+              checked={isCheckedLow}
+              onChange={handleCheckboxes}
+            />
+            <label className="form-check-label" htmlFor="low">
+              Lowercase letters
+            </label>
+          </div>
+
+          <div className="form-check form-switch col-6 col-sm-3">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              name="up"
+              checked={isCheckedUp}
+              onChange={handleCheckboxes}
+            />
+            <label className="form-check-label" htmlFor="up">
+              Uppercase letters
+            </label>
+          </div>
+
+          <div className="form-check form-switch col-6 col-sm-3">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              name="num"
+              checked={isCheckedNum}
+              onChange={handleCheckboxes}
+            />
+            <label className="form-check-label" htmlFor="num">
+              Numbers
+            </label>
+          </div>
+
+          <div className="form-check form-switch col-6 col-sm-3">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              name="special"
+              checked={isCheckedSpecial}
+              onChange={handleCheckboxes}
+            />
+            <label className="form-check-label" htmlFor="special">
+              Special characters
+            </label>
+          </div>
+        </div>
+        <div className="container mt-5">
+          <div className="row justify-content-center">
+            <div className="col-auto">
+              <label htmlFor="passwordLength" className="col-form-label">
+                Password length:
+              </label>
+            </div>
+            <div className="col-auto">
+              <input
+                className="form-control"
+                type="number"
+                id="passwordLength"
+                value={pwdLength}
+                min={8}
+                max={20}
+                onChange={handleNumberInput}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
