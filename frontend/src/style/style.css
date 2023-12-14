@@ -1,6 +1,7 @@
 body {
   background: linear-gradient(to bottom, #0c0f17, #20232a, #0c0f17);
   color: #fff;
+  height: 100vh;
 }
 
 #password {
@@ -14,9 +15,17 @@ body {
 }
 
 .test {
-  border: solid 3px green;
+  border: solid 5px rgb(255, 255, 255);
 }
 
 .test2 {
-  border: solid 3px blue;
+  border: solid 5px rgb(218, 201, 13);
+}
+
+.test3 {
+  border: solid 5px red;
+}
+
+.test4 {
+  border: solid 5px rgb(51, 251, 51);
 }

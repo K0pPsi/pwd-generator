@@ -154,70 +154,74 @@ const MainLayout = () => {
       className="d-flex justify-content-center align-items-center flex-column"
       style={{ height: "100vh" }}
     >
+      {/* start generate section */}
       <div>
         <div className="d-flex justify-content-center flex-column">
           <h1 className="text-center">Password Generator</h1>
-          <p className="text-center mt-3 col-6 mx-auto" id="password">
+          <p className="text-center mt-3 col-md-6 mx-auto" id="password">
             {pwd}
           </p>
           <button
-            className="btn btn-outline-light col-3 mx-auto"
+            className="btn btn-outline-light col-md-3 mx-auto"
             onClick={handleGenerateBtn}
           >
             Generate
           </button>
         </div>
-        <div className="ms-2 me-2 row mt-5 w-auto">
-          <div className="form-check form-switch col-6 col-sm-3">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              name="low"
-              checked={isCheckedLow}
-              onChange={handleCheckboxes}
-            />
-            <label className="form-check-label" htmlFor="low">
-              Lowercase letters
-            </label>
-          </div>
+        {/* end generate section */} {/* start settings section */}
+        <div className="d-flex justify-content-center mt-5">
+          <div className="d-flex justify-content-center">
+            <div className="form-check form-check-inline">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                name="low"
+                checked={isCheckedLow}
+                onChange={handleCheckboxes}
+              />
+              <label className="form-check-label" htmlFor="low">
+                Lowercase letters
+              </label>
+            </div>
 
-          <div className="form-check form-switch col-6 col-sm-3">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              name="up"
-              checked={isCheckedUp}
-              onChange={handleCheckboxes}
-            />
-            <label className="form-check-label" htmlFor="up">
-              Uppercase letters
-            </label>
-          </div>
+            <div className="form-check form-check-inline ">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                name="up"
+                checked={isCheckedUp}
+                onChange={handleCheckboxes}
+              />
+              <label className="form-check-label" htmlFor="up">
+                Uppercase letters
+              </label>
+            </div>
 
-          <div className="form-check form-switch col-6 col-sm-3">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              name="num"
-              checked={isCheckedNum}
-              onChange={handleCheckboxes}
-            />
-            <label className="form-check-label" htmlFor="num">
-              Numbers
-            </label>
-          </div>
+            <div className="form-check form-check-inline">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                name="num"
+                checked={isCheckedNum}
+                onChange={handleCheckboxes}
+              />
+              <label className="form-check-label" htmlFor="num">
+                Numbers
+              </label>
+            </div>
 
-          <div className="form-check form-switch col-6 col-sm-3">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              name="special"
-              checked={isCheckedSpecial}
-              onChange={handleCheckboxes}
-            />
-            <label className="form-check-label" htmlFor="special">
-              Special characters
-            </label>
+            <div className="form-check form-check-inline">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                name="special"
+                checked={isCheckedSpecial}
+                onChange={handleCheckboxes}
+              />
+              <label className="form-check-label" htmlFor="special">
+                Special characters
+              </label>
+            </div>
           </div>
         </div>
         <div className="container mt-5">
@@ -241,6 +245,7 @@ const MainLayout = () => {
           </div>
         </div>
       </div>
+      {/* end settings section */}
     </div>
   );
 };
