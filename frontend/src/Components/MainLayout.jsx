@@ -5,7 +5,7 @@ import "../style/style.css";
 const MainLayout = () => {
   const [pwd, setPwd] = useState("safePassword");
   const [pwdList, setPwdList] = useState([]);
-  const [pwdLength, setPwdLength] = useState(8);
+  const [pwdLength, setPwdLength] = useState(5);
   const [isCheckedLow, setIsCheckedLow] = useState(true);
   const [isCheckedUp, setIsCheckedUp] = useState(false);
   const [isCheckedNum, setIsCheckedNum] = useState(false);
@@ -88,18 +88,26 @@ const MainLayout = () => {
     "z",
   ];
 
-  const newPwd = [];
-
+  //the function controll the password length and genearte the pwd or alert the error message
   const handleGenerateBtn = () => {
     let newPassword = "";
-    for (let i = 0; i < pwdLength; i++) {
-      newPassword += pwdList[Math.floor(Math.random() * pwdList.length)];
-    }
 
-    setPwd(newPassword);
+    if (pwdLength >= 5 && pwdLength <= 20) {
+      for (let i = 0; i < pwdLength; i++) {
+        newPassword += pwdList[Math.floor(Math.random() * pwdList.length)];
+      }
+
+      setPwd(newPassword);
+    } else {
+      alert(
+        "The password length must be a minimum of 5 and a maximum of 20 characters."
+      );
+      setPwdLength(5);
+    }
   };
 
   useEffect(() => {
+    //create an object with the arrays as values
     const availableChars = {
       lowercase: lowercaseLetters,
       uppercase: uppercaseLetters,
@@ -107,11 +115,13 @@ const MainLayout = () => {
       special: specialCharacter,
     };
 
+    //one checkbox must be selected
     try {
       if (!isCheckedLow && !isCheckedUp && !isCheckedNum && !isCheckedSpecial) {
         throw new Error("Es muss mindestens eine Checkbox angewählt sein.");
       }
 
+      //filter the selected checkboxes and give one array back
       const selectedChars = Object.keys(availableChars)
         .filter((key) => {
           const isChecked =
@@ -123,7 +133,6 @@ const MainLayout = () => {
         })
         .map((key) => availableChars[key])
         .flat();
-
       setPwdList(selectedChars);
     } catch (e) {
       alert(e.message);
@@ -237,7 +246,7 @@ const MainLayout = () => {
                 type="number"
                 id="passwordLength"
                 value={pwdLength}
-                min={8}
+                min={5}
                 max={20}
                 onChange={handleNumberInput}
               />
