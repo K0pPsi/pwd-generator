@@ -5,7 +5,7 @@ The Password Generator is an easy-to-use web application designed to quickly and
 
 ## Authors
 
-- [@oK0pPsi](https://github.com/K0pPsi)
+- [@K0pPsi](https://github.com/K0pPsi)
 
 
 ## Installation
